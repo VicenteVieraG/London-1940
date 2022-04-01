@@ -29,6 +29,13 @@ public class planeFlight : MonoBehaviour
     [Tooltip("Objeto que va a soltar como Bomba")]
     public Rigidbody Bomb;
     public Transform offSet;
+    [Tooltip("Sistema de particulas")]
+    public ParticleSystem bullets;  
+    [SerializeField]
+    private ParticleSystem machingaR;
+    [SerializeField]
+    private ParticleSystem machingaL;
+
 
 
     // Start is called before the first frame update

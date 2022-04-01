@@ -13,6 +13,9 @@ public class bomb : MonoBehaviour
     float porcentaje = 0;
     GameObject explosion;
     bool contact = false;
+    [Tooltip("Material de la explosion")]
+    public Material Ma;
+
 
     void OnCollisionEnter(Collision col){
         if(!contact && col.gameObject.tag != "Bomb"){
@@ -21,6 +24,7 @@ public class bomb : MonoBehaviour
             explosion = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             explosion.transform.position = this.transform.position;
             explosion.tag="Bomb";
+            explosion.GetComponent<Renderer>().material = Ma;
         }
     }
 
