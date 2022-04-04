@@ -23,6 +23,8 @@ public class normalShots : MonoBehaviour
     }
 
     void EmitAtLocation(ParticleCollisionEvent PCE){
+        float t;
         var effect = Instantiate(explosion,PCE.intersection,Quaternion.LookRotation(PCE.normal)) as GameObject;
+        Destroy(effect, t = 5F);
     }
 }

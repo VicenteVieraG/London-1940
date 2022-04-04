@@ -6,8 +6,11 @@ public class tamaulipas : MonoBehaviour
 {
     //variables
     [SerializeField]
+    [Tooltip("Disparo especial1")]  
     private ParticleSystem machingaR;
+    
     [SerializeField]
+    [Tooltip("Disparo especial2")]  
     private ParticleSystem machingaL;
 
     // Update is called once per frame
