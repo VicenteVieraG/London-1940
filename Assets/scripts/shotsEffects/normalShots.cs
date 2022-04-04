@@ -23,11 +23,6 @@ public class normalShots : MonoBehaviour
     }
 
     void EmitAtLocation(ParticleCollisionEvent PCE){
-        GameObject par;
-        Vector3 Scale =new Vector3(10f,10f,10f);
-
-        par = Instantiate(explosion,PCE.intersection,Quaternion.LookRotation(PCE.normal));
-        par.transform.localScale=Scale;
-
+        var effect = Instantiate(explosion,PCE.intersection,Quaternion.LookRotation(PCE.normal)) as GameObject;
     }
 }

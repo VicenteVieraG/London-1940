@@ -25,7 +25,7 @@ public class planeFlight : MonoBehaviour
     //GUI para mostrar
     [Tooltip("GUI Seleccionada")]
     public GameObject GUI;
-    //Obeto de bomba
+    //Objeto de bomba
     [Tooltip("Objeto que va a soltar como Bomba")]
     public Rigidbody Bomb;
     public Transform offSet;
@@ -35,9 +35,9 @@ public class planeFlight : MonoBehaviour
     private ParticleSystem machingaR;
     [SerializeField]
     private ParticleSystem machingaL;
-
-
-
+    // Bandera para aplicar zoom a camara
+    private bool zoomActived = false;
+    private Camera cam;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +49,8 @@ public class planeFlight : MonoBehaviour
         cam3.SetActive(false);
         cam4.SetActive(false);
         cam5.SetActive(false);
+        
+        cam =  cam1.GetComponent<Camera>();
     }
 
     // Update is called once per frame
@@ -103,12 +105,14 @@ public class planeFlight : MonoBehaviour
                     cam4.SetActive(false);
                     cam5.SetActive(false);
                     break;
+                    cam = cam2.GetComponent<Camera>();
                 case 2:
                     cam1.SetActive(false);
                     cam2.SetActive(false);
                     cam3.SetActive(true);
                     cam4.SetActive(false);
                     cam5.SetActive(false);
+                    cam = cam3.GetComponent<Camera>();
                     break;
                 case 3:
                     cam1.SetActive(false);
@@ -116,6 +120,7 @@ public class planeFlight : MonoBehaviour
                     cam3.SetActive(false);
                     cam4.SetActive(true);
                     cam5.SetActive(false);
+                    cam = cam4.GetComponent<Camera>();
                     break;
                 case 4:
                     cam1.SetActive(false);
@@ -123,6 +128,7 @@ public class planeFlight : MonoBehaviour
                     cam3.SetActive(false);
                     cam4.SetActive(false);
                     cam5.SetActive(true);
+                    cam = cam5.GetComponent<Camera>();
                     break;
                 case 5:
                     cam1.SetActive(true);
@@ -130,10 +136,31 @@ public class planeFlight : MonoBehaviour
                     cam3.SetActive(false);
                     cam4.SetActive(false);
                     cam5.SetActive(false);
+                    cam = cam1.GetComponent<Camera>();
                     camN=0;
                     break;
             }
         }
+
+
+        
+        //Zoom
+        if(Input.GetKeyDown("e")){
+            // public Camera cam1;
+            if(zoomActived == true){
+                
+                zoomActived = false;
+                cam.fieldOfView = 60;
+            } else {
+                zoomActived = true;
+                cam.fieldOfView = 30;
+
+            }
+        }
+
+        //  else {
+        //     cam.fieldOfView = 60;
+        // }
     }
 
     void OnCollisionEnter(Collision col) {
