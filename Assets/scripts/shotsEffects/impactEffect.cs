@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class normalShots : MonoBehaviour
+public class impactEffect : MonoBehaviour
 {
     [SerializeField]
+    [Tooltip("Efecto al impactar")]
     private GameObject explosion;
     private List<ParticleCollisionEvent> CollisionEvents;
     private ParticleSystem PSystem;

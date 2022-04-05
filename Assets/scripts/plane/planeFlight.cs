@@ -1,4 +1,4 @@
-using System.Collections;
++using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -144,9 +144,8 @@ public class planeFlight : MonoBehaviour
 
 
         
-        //Zoom
+        //Zoom 
         if(Input.GetKeyDown("e")){
-            // public Camera cam1;
             if(zoomActived == true){
                 
                 zoomActived = false;
@@ -157,10 +156,6 @@ public class planeFlight : MonoBehaviour
 
             }
         }
-
-        //  else {
-        //     cam.fieldOfView = 60;
-        // }
     }
 
     void OnCollisionEnter(Collision col) {
